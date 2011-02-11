@@ -13,10 +13,10 @@ List of possible box styles:
   awk '/^BOX/ {print $2}' /etc/boxes/boxes.conf
 
 Runtime requirements:
-  cygwin
+  libgcc1
 
 Build requirements:
-  cygwin
+  libgcc1
 
 Canonical homepage:
   http://boxes.thomasjensen.com
@@ -45,34 +45,29 @@ Language:
 
 Build instructions:
   You need cygbuild.sourceforge.net to build source package
-  unpack boxes-1.0.1a-1-src.tar.bz2
+  unpack boxes-1.0.1a-2-src.tar.bz2
     if you use setup to install this src package, it will be
          unpacked under /usr/src automatically
   cd /usr/src
   ./boxes*.sh all
 
 This will create:
-  boxes-1.0.1a-1.tar.bz2
-  boxes-1.0.1a-1-src.tar.bz2
+  boxes-1.0.1a-2.tar.bz2
+  boxes-1.0.1a-2-src.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary distro:
-
-etc/postinstall/boxes.sh
-etc/preremove/boxes-manifest-from.lst
-etc/preremove/boxes-manifest.lst
-usr/bin/boxes.exe
-usr/share/doc/Cygwin/boxes-1.0.1a.README
-usr/share/doc/boxes-1.0.1a/COPYING
-usr/share/doc/boxes-1.0.1a/README
-usr/share/doc/boxes-1.0.1a/examples/boxes.conf
-usr/share/man/man1/boxes.1.gz
+  See Cygwin package archive
 
 ------------------
 
 Port Notes:
 - This port is based on Debian package.
+
+----- version 1.0.1a-2 -----
+- Update 2011-02-11 Jari Aalto
+- Rewrite postinstall.sh, rearrange patches, include Debian fixes.
 
 ----- version 1.0.1a-1 -----
 - New upstream version 2007-09-19 Jari Aalto
@@ -92,4 +87,4 @@ Port Notes:
 - Makefile: add 'install' target and fix 'clean' target to not reove *.1
 
 Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
-Copyright (C) 2006-2007 Jari Aalto; Licenced under GPL v2 or later
+Copyright (C) 2006-2011 Jari Aalto; Licenced under GPL v2 or later
