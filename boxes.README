@@ -1,0 +1,95 @@
+boxes
+------------------------------------------
+
+Textmode box- and comment drawing filter
+
+Extremely configurable filter for adding and removing ASCII art
+(comments, for example) around chunks of text. Most modern text
+editors support filtering text through external filters. Boxes is such
+a filter.
+
+List of possible box styles:
+
+  awk '/^BOX/ {print $2}' /etc/boxes/boxes.conf
+
+Runtime requirements:
+  cygwin
+
+Build requirements:
+  cygwin
+
+Canonical homepage:
+  http://boxes.thomasjensen.com
+  http://packages.debian.org/boxes
+
+Canonical download:
+  See above
+
+Mailing list:
+
+Forum / Wiki:
+
+IRC channel:
+
+Upstream author:
+  Author: Thomas Jensen <boxes@thomasjensen.com>
+  Bugs: Thomas Jensen <boxes@thomasjensen.com>
+
+License:
+  GPL
+
+Language:
+  C
+
+------------------------------------
+
+Build instructions:
+  You need cygbuild.sourceforge.net to build source package
+  unpack boxes-1.0.1a-1-src.tar.bz2
+    if you use setup to install this src package, it will be
+         unpacked under /usr/src automatically
+  cd /usr/src
+  ./boxes*.sh all
+
+This will create:
+  boxes-1.0.1a-1.tar.bz2
+  boxes-1.0.1a-1-src.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary distro:
+
+etc/postinstall/boxes.sh
+etc/preremove/boxes-manifest-from.lst
+etc/preremove/boxes-manifest.lst
+usr/bin/boxes.exe
+usr/share/doc/Cygwin/boxes-1.0.1a.README
+usr/share/doc/boxes-1.0.1a/COPYING
+usr/share/doc/boxes-1.0.1a/README
+usr/share/doc/boxes-1.0.1a/examples/boxes.conf
+usr/share/man/man1/boxes.1.gz
+
+------------------
+
+Port Notes:
+- This port is based on Debian package.
+
+----- version 1.0.1a-1 -----
+- New upstream version 2007-09-19 Jari Aalto
+- FIXME: the sys/stat.h should define S_IFMT and S_IFDIR, but for
+  some reason -UPOSIX_SOURCE did not make them visible. For now
+  a ugly hack -D... is used at compile time to define these constants.
+- Makefile: add 'install' target and fix 'clean' target to not remove *.1
+- src/Makefile: uncommonet call to strip. This is handled during install.
+
+----- version 20000401-1 -----
+- Initial release 2006-05-01 Jari Aalto
+- Makefile: -traditional flag must be removed.
+- original package's directory structure says it is version
+  boxes-SNAP-20000401 but README.Win32.txt reports the version as 20000318
+- README lists version as [stability & portability release
+  1.0.1]. This line has been removed.
+- Makefile: add 'install' target and fix 'clean' target to not reove *.1
+
+Cygwin port maintained by: Jari Aalto <jari.aalto@cante.net>
+Copyright (C) 2006-2007 Jari Aalto; Licenced under GPL v2 or later

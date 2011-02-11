@@ -1,0 +1,7 @@
+sdesc: "Textmode box- and comment drawing filter"
+ldesc: "Extremely configurable filter for adding and removing ASCII art
+(comments, for example) around chunks of text. Most modern text
+editors support filtering text through external filters. Boxes is such
+a filter."
+category: Text
+requires: cygwin

@@ -1,0 +1,83 @@
+ Makefile     |   41 ++++++++++++++++++++++++++++++++++++++++-
+ src/Makefile |    2 +-
+ 2 files changed, 41 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 8c252f9..9018deb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -63,6 +63,30 @@ RCS_FILES  = $(CL_FILES) Makefile doc/boxes.1.in
+ ALL_FILES  = COPYING README README.Win32.txt boxes-config Makefile
+ DOC_FILES  = doc/boxes.1 doc/boxes.1.in
+ 
++DESTDIR         =
++prefix          = /usr
++exec_prefix     = $(prefix)
++man_prefix      = $(prefix)/share
++
++PACKAGE         = boxes
++INSTALL         = /usr/bin/install
++INSTALL_BIN     = $(INSTALL) -m 755
++INSTALL_SUID    = $(INSTALL) -m 4755
++INSTALL_DATA    = $(INSTALL) -m 644
++
++INSTALL_OBJS_BIN   = src/$(PACKAGE)
++INSTALL_OBJS_MAN1  = doc/*.1
++INSTALL_OBJS_ETC   = boxes-config
++
++MANDIR1         = $(DESTDIR)$(man_prefix)/man/man1
++MANDIR5         = $(DESTDIR)$(man_prefix)/man/man5
++MANDIR8         = $(DESTDIR)$(man_prefix)/man/man8
++BINDIR          = $(DESTDIR)$(exec_prefix)/bin
++SBINDIR         = $(DESTDIR)$(exec_prefix)/sbin
++ETCDIR          = $(DESTDIR)/etc/$(PACKAGE)
++SHAREDIR        = $(DESTDIR)$(prefix)/share/$(PACKAGE)
++LIBDIR          = $(DESTDIR)$(prefix)/lib/$(PACKAGE)
++
+ 
+ build debug boxes: src/boxes.h doc/boxes.1
+ 	$(MAKE) -C src $@
+@@ -76,7 +100,7 @@ doc/boxes.1: doc/boxes.1.in Makefile
+ 
+ 
+ clean:
+-	rm -f doc/boxes.1
++#	rm -f doc/boxes.1
+ 	$(MAKE) -C src clean
+ 
+ locsnap: $(ALL_FILES) $(DOC_FILES)
+@@ -105,6 +129,21 @@ logpage: $(CL_FILES)
+ love:
+ 	@echo "Not in front of the kids, honey!"
+ 
++install-etc:
++	# install-etc
++	$(INSTALL_BIN) -d $(ETCDIR)
++	$(INSTALL_BIN) $(INSTALL_OBJS_ETC) $(ETCDIR)/boxes.conf
++
++install-bin:
++	# install-bin
++	$(INSTALL_BIN) -d $(BINDIR)
++	$(INSTALL_BIN) -s $(INSTALL_OBJS_BIN) $(BINDIR)
++
++install-man:
++	# install-man
++	$(INSTALL_BIN) -d $(MANDIR1)
++	$(INSTALL_DATA) $(INSTALL_OBJS_MAN1) $(MANDIR1)
+ 
++install: install-bin install-man install-etc
+ 
+ #EOF
+diff --git a/src/Makefile b/src/Makefile
+index c152714..c77446c 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -100,7 +100,7 @@ ALL_OBJ    = $(GEN_SRC:.c=.o) $(ORIG_NORM:.c=.o)
+ 
+ build:
+ 	$(MAKE) CFLAGS_ADDTL=-O boxes
+-	strip boxes
++#	strip boxes
+ debug:
+ 	$(MAKE) CFLAGS_ADDTL=-g boxes
+ 
