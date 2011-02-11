@@ -4,4 +4,4 @@ ldesc: "Extremely configurable filter for adding and removing ASCII art
 editors support filtering text through external filters. Boxes is such
 a filter."
 category: Text
-requires: cygwin
+requires: libgcc1
