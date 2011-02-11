@@ -1,8 +1,6 @@
--- Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
-
 To: cygwin-announce@cygwin.com
-Subject: Updated: package N.N
-Subject: New package: boxes 0.19.3 -- Textmode box- and comment drawing filter
+Subject: Updated: boxes 1.0.1a-2 -- Textmode box and comment drawing filter
+--text follows this line--
 
 PACKAGE DESCRIPTION
 ===================
@@ -18,7 +16,7 @@ a filter.
 CHANGES SINCE LAST RELEASE
 ==========================
 
-None.
+Cygwin postinstall fix.
 
 INSTALL OR UPGRADE NOTES
 ========================
