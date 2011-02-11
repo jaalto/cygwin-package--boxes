@@ -82,8 +82,8 @@ InstallConffiles ()
 
     #  Filter out all comments. Grep only lines with filenames
 
-    grep -E '^[^#]*/|^[[:space]]*$' $conffiles_from > $from
-    grep -E '^[^#]*/|^[[:space]]*$' $conffiles_to   > $to
+    grep -E '^[^#]*/|^[[:space:]]*$' $conffiles_from > $from
+    grep -E '^[^#]*/|^[[:space:]]*$' $conffiles_to   > $to
 
     paste $from $to  |
     {
