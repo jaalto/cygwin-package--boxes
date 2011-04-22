@@ -66,7 +66,7 @@ Port Notes:
 - This port is based on Debian package.
 
 ----- version 1.0.1a-2 -----
-- Update 2011-02-11 Jari Aalto
+- Update 2011-04-20 Jari Aalto
 - Rewrite postinstall.sh, rearrange patches, include Debian fixes.
 
 ----- version 1.0.1a-1 -----
