@@ -1,0 +1,6 @@
+# List install(1) components: FROM TO [MODE]
+
+boxes-config	usr/share/doc/boxes/examples/boxes.conf
+boxes-config	etc/boxes/boxes.conf
+src/boxes	usr/bin/
+doc/boxes.1
