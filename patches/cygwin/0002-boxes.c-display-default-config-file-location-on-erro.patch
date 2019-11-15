@@ -1,0 +1,29 @@
+From bbd10cf0e04e0d905da31636725d07540e35de5e Mon Sep 17 00:00:00 2001
+From: Jari Aalto <jari.aalto@cante.net>
+Date: Fri, 15 Nov 2019 09:43:56 +0200
+Subject: [PATCH] boxes.c: display default config file location on error
+Organization: Private
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Jari Aalto <jari.aalto@cante.net>
+---
+ boxes.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/boxes.c b/boxes.c
+index 038101c..b81e1f9 100644
+--- a/src/boxes.c
++++ b/src/boxes.c
+@@ -343,7 +343,7 @@ static int get_config_file()
+     /*
+      *  Darn. No luck today.
+      */
+-    fprintf (stderr, "%s: Can't find config file.\n", PROJECT);
++    fprintf (stderr, "%s: Can't find config file %s.\n", PROJECT, GLOBALCONF);
+     return 2;
+ }
+ 
+-- 
+2.21.0
+
