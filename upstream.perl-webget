@@ -1,4 +1,4 @@
 # Copyright (C) 2007 Jari Aalto; Licenced under GPL v2 or later
 
 tag1: boxes
-  http://packages.debian.org/unstable/boxes pregexp:tar.gz file:orig.tar.gz new: x:
+  http://packages.debian.org/unstable/boxes pregexp:tar.xz file:orig.tar.zz new: x:
